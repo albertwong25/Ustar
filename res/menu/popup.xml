@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">  
+    <item android:id="@+id/popupOffice"
+          android:title="Office" />
+    <item android:id="@+id/popupLT"
+          android:title="Lecture Theater" />
+    <item android:id="@+id/popupRoom"
+          android:title="Room" />
+    <item android:id="@+id/popupRestaurant"
+          android:title="Restaurant" />
+    <item android:id="@+id/popupToilet"
+          android:title="Toilet" />
+    <item android:id="@+id/popupLift"
+          android:title="Lift" />
+	</group>    
+</menu>
+    

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/38/trunk/Ustar/src/com/hkust/ustar/language
+END
+.gitignore
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/38/trunk/Ustar/src/com/hkust/ustar/language/.gitignore
+END
+LanguageCodeHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/38/trunk/Ustar/src/com/hkust/ustar/language/LanguageCodeHelper.java
+END

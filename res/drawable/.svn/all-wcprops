@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/38/trunk/Ustar/res/drawable
+END
+info_button.xml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/31/trunk/Ustar/res/drawable/info_button.xml
+END
+cvs_button.xml
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/38/trunk/Ustar/res/drawable/cvs_button.xml
+END
+previous_button.xml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/38/trunk/Ustar/res/drawable/previous_button.xml
+END
+confirm_button.xml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/33/trunk/Ustar/res/drawable/confirm_button.xml
+END
+map_button.xml
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/33/trunk/Ustar/res/drawable/map_button.xml
+END
+shutter_button.xml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/31/trunk/Ustar/res/drawable/shutter_button.xml
+END
+next_button.xml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/38/trunk/Ustar/res/drawable/next_button.xml
+END
+back_button.xml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/33/trunk/Ustar/res/drawable/back_button.xml
+END
+cvs_toggle.xml
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/38/trunk/Ustar/res/drawable/cvs_toggle.xml
+END
+flash_toggle.xml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/38/trunk/Ustar/res/drawable/flash_toggle.xml
+END

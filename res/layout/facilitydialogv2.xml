@@ -1,0 +1,625 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:layout_marginBottom="25dp">
+    
+    <TextView
+        android:id="@+id/fdialog_title"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+		android:gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="" />
+    
+<ScrollView 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    
+    <LinearLayout
+        android:orientation="vertical"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="3"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeslot16"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+			android:gravity="center"
+			android:text="08:00-08:30" />
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeavailable16"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+			android:gravity="center" />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="3"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeslot17"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+			android:gravity="center"
+			android:text="08:30-09:00" />
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeavailable17"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+			android:gravity="center" />
+    </LinearLayout>
+	
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="3"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeslot18"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+			android:gravity="center"
+			android:text="09:00-09:30" />
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeavailable18"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+			android:gravity="center" />
+    </LinearLayout>
+	
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="3"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeslot19"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+			android:gravity="center"
+			android:text="09:30-10:00" />
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeavailable19"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+			android:gravity="center" />
+    </LinearLayout>
+	
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="3"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeslot20"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+			android:gravity="center"
+			android:text="10:00-10:30" />
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeavailable20"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+			android:gravity="center" />
+    </LinearLayout>
+	
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="3"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeslot21"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+			android:gravity="center"
+			android:text="10:30-11:00" />
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeavailable21"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+			android:gravity="center" />
+    </LinearLayout>
+	
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="3"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeslot22"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+			android:gravity="center"
+			android:text="11:00-11:30" />
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeavailable22"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+			android:gravity="center" />
+    </LinearLayout>
+	
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="3"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeslot23"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+			android:gravity="center"
+			android:text="11:30-12:00" />
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeavailable23"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+			android:gravity="center" />
+    </LinearLayout>
+	
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="3"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeslot24"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+			android:gravity="center"
+			android:text="12:00-12:30" />
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeavailable24"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+			android:gravity="center" />
+    </LinearLayout>
+	
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="3"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeslot25"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+			android:gravity="center"
+			android:text="12:30-13:00" />
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeavailable25"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+			android:gravity="center" />
+    </LinearLayout>
+	
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="3"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeslot26"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+			android:gravity="center"
+			android:text="13:00-13:30" />
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeavailable26"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+			android:gravity="center" />
+    </LinearLayout>
+	
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="3"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeslot27"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+			android:gravity="center"
+			android:text="13:30-14:00" />
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeavailable27"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+			android:gravity="center" />
+    </LinearLayout>
+	
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="3"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeslot28"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+			android:gravity="center"
+			android:text="14:00-14:30" />
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeavailable28"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+			android:gravity="center" />
+    </LinearLayout>
+	
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="3"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeslot29"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+			android:gravity="center"
+			android:text="14:30-15:00" />
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeavailable29"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+			android:gravity="center" />
+    </LinearLayout>
+	
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="3"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeslot30"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+			android:gravity="center"
+			android:text="15:00-15:30" />
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeavailable30"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+			android:gravity="center" />
+    </LinearLayout>
+	
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="3"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeslot31"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+			android:gravity="center"
+			android:text="15:30-16:00" />
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeavailable31"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+			android:gravity="center" />
+    </LinearLayout>
+	
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="3"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeslot32"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+			android:gravity="center"
+			android:text="16:00-16:30" />
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeavailable32"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+			android:gravity="center" />
+    </LinearLayout>
+	
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="3"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeslot33"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+			android:gravity="center"
+			android:text="16:30-17:00" />
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeavailable33"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+			android:gravity="center" />
+    </LinearLayout>
+	
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="3"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeslot34"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+			android:gravity="center"
+			android:text="17:00-17:30" />
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeavailable34"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+			android:gravity="center" />
+    </LinearLayout>
+	
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="3"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeslot35"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+			android:gravity="center"
+			android:text="17:30-18:00" />
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeavailable35"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+			android:gravity="center" />
+    </LinearLayout>
+	
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="3"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeslot36"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+			android:gravity="center"
+			android:text="18:00-18:30" />
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeavailable36"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+			android:gravity="center" />
+    </LinearLayout>
+	
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:weightSum="3"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeslot37"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+			android:gravity="center"
+			android:text="18:30-19:00" />
+
+        <TextView
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/timeavailable37"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_gravity="center"
+			android:gravity="center" />
+    </LinearLayout>
+    </LinearLayout>
+</ScrollView>
+
+</LinearLayout>

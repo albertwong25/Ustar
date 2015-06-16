@@ -1,0 +1,228 @@
+package com.hkust.ustar;
+
+import java.io.IOException;
+import java.io.InputStream;
+import android.app.Activity;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.DashPathEffect;
+import android.graphics.Paint;
+import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
+
+import com.hkust.ustar.R;
+import com.hkust.ustar.database.DatabaseHelper;
+import com.metaio.sdk.jni.LLACoordinate;
+
+public class TouchImageViewActivity extends Activity {
+
+	private static final String TAG = TouchImageViewActivity.class.getSimpleName();
+	private TouchImageView mMapTouchImageView;
+    private Bitmap mMapBitmap;
+    private Canvas mMapCanvas;
+    private Paint mPaint;
+    private String mPath;
+    private int mCurrIndex;
+    private LLACoordinate mNextTargetLocation;
+    private double mCurrentLatitude;
+    private double mCurrentLongitude;
+    private double mPercentageTraveled;
+    private double maxLatitude;
+    private double minLatitude;
+    private double maxLongtitude;
+    private double minLongtitude;
+    private double maxMapX;
+    private double maxMapY;
+    private float userIconY;
+    private float userIconX;
+    private float destinationIconY;
+    private float destinationIconX;
+	private double mFix = 0;//0.00001;
+    
+	/** Called when the activity is first created. */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // fetch the extras
+        mPath = getIntent().getExtras().getString("my_path");
+        
+        mCurrIndex = getIntent().getExtras().getInt("curr_position");
+        mPercentageTraveled = getIntent().getExtras().getDouble("percentage_traveled");
+        mNextTargetLocation = new LLACoordinate();
+        mNextTargetLocation.setLatitude(getIntent().getExtras().getDouble("next_latitude") + mFix);
+        mNextTargetLocation.setLongitude(getIntent().getExtras().getDouble("next_longitude"));
+        
+        setContentView(R.layout.image_view);
+        mMapTouchImageView = (TouchImageView) findViewById(R.id.map_image);
+        
+        initialize();
+        
+		// initialize paint to draw red path
+        mPaint = new Paint();
+    	mPaint.setAntiAlias(true);
+        mPaint.setStrokeWidth(3f);
+        mPaint.setColor(Color.RED);
+        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStrokeJoin(Paint.Join.MITER);   
+        
+        String[] node_array = mPath.split(",");
+		String[] travelled_node_array = new String[mCurrIndex+1];
+		String[] remaining_node_array = new String[node_array.length-mCurrIndex];
+		for(int i=0;i<node_array.length;i++) {
+        	if(i<=mCurrIndex) {
+        		travelled_node_array[i] = node_array[i];
+        	}
+        	if(i>=mCurrIndex) {
+        		remaining_node_array[i-mCurrIndex] = node_array[i];
+        	}
+        }
+        // draw the paths
+		try {
+			drawPath(travelled_node_array,false);
+			mPaint.setStrokeWidth(2f);
+			mPaint.setPathEffect(new DashPathEffect(new float[] { 4, 2, 4, 2 }, 0));
+			drawPath(remaining_node_array,true);			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		mMapTouchImageView.setImageBitmap(mMapBitmap);
+		
+		// perform automatic zoom on the source after 1 second
+		Handler handler = new Handler();
+		handler.postDelayed(new Runnable(){
+		@Override
+		      public void run(){
+				mMapTouchImageView.performZoom(calculateViewSize(userIconX, true), calculateViewSize(userIconY, false));
+			}
+		}, 1000);
+    }
+    
+    private void initialize() {
+    	// min and max geo-coordianates
+        minLatitude = 22.335435;
+        minLongtitude = 114.262623;
+        maxLatitude = 22.338372;
+        maxLongtitude = 114.264381;
+        
+        InputStream filepath;
+		try {
+			filepath = getAssets().open("images/hkust_map.png");
+			mMapBitmap = BitmapFactory.decodeStream(filepath);
+			mMapBitmap = mMapBitmap.copy(Bitmap.Config.ARGB_8888, true);
+			maxMapX = mMapBitmap.getWidth();
+			maxMapY = mMapBitmap.getHeight();
+            mMapCanvas = new Canvas(mMapBitmap);
+		} catch (IOException e) {
+			Log.e(TAG, "Framing rect not available", e);
+		}
+    }
+    
+    private void drawPath(String[] node_array, boolean remaining) throws IOException {
+    	DatabaseHelper mDatabaseHelper = DatabaseHelper.getInstance(this);
+		SQLiteDatabase mDatabase = mDatabaseHelper.getWritableDatabase();
+    	int numOfLines = node_array.length;
+    	if(numOfLines > 0) {
+    		// retrieve the first node from the path
+    		Cursor node_cursor = mDatabase.rawQuery("SELECT * FROM Node WHERE _id=" + node_array[0], null);
+    		node_cursor.moveToFirst(); 			
+	    	double startLatitude = node_cursor.getDouble(node_cursor.getColumnIndex("latitude")) + mFix;
+	    	double startLongitude = node_cursor.getDouble(node_cursor.getColumnIndex("longitude"));
+    		
+	    	if(remaining) {
+    			startLatitude = mCurrentLatitude;
+    			startLongitude = mCurrentLongitude;
+    		}
+	    	
+	    	double endLatitude = 0;
+	    	double endLongitude = 0;
+	    	node_cursor.moveToNext();
+			
+	    	for(int i=1; i<numOfLines; i++) {
+				// retrieve the next node from the path
+				node_cursor = mDatabase.rawQuery("SELECT * FROM Node WHERE _id=" + node_array[i], null);
+				node_cursor.moveToFirst();
+		    	endLatitude = node_cursor.getDouble(node_cursor.getColumnIndex("latitude")) + mFix;
+		    	endLongitude = node_cursor.getDouble(node_cursor.getColumnIndex("longitude"));
+		    	// draw line with start and end coordinates
+		    	drawLine(startLatitude, startLongitude, endLatitude, endLongitude);
+		    	
+		    	startLatitude = endLatitude;
+		    	startLongitude = endLongitude;
+			}
+			
+			if(!remaining) {
+				// draw line using percentage traveled
+				mCurrentLatitude = startLatitude + (mNextTargetLocation.getLatitude() - startLatitude) * mPercentageTraveled;
+				mCurrentLongitude = startLongitude + (mNextTargetLocation.getLongitude() - startLongitude) * mPercentageTraveled;
+				drawLine(startLatitude, startLongitude, mCurrentLatitude, mCurrentLongitude);
+			}
+			
+			if(remaining) {
+				// draw destination icon with the end coordinate
+				drawDestinationIcon(endLatitude, endLongitude);
+				// draw source icon
+				drawUserIcon(mCurrentLatitude, mCurrentLongitude);
+			}
+    	}
+    }
+    
+    private void drawLine(double startLatitude, double startLongitude, double endLatitude, double endLongitude) {   	
+        // draw from starting point to ending point
+        float startY = (float) (maxMapY-((startLongitude - minLongtitude)/(maxLongtitude - minLongtitude)) * maxMapY);
+        float startX = (float) (maxMapX-((startLatitude - minLatitude)/(maxLatitude - minLatitude)) * maxMapX);        		
+        float endY = (float) (maxMapY-((endLongitude - minLongtitude)/(maxLongtitude - minLongtitude)) * maxMapY);
+        float endX = (float) (maxMapX-((endLatitude - minLatitude)/(maxLatitude - minLatitude)) * maxMapX);
+    	mMapCanvas.drawLine(startX, startY, endX, endY, mPaint);
+    }
+       
+    private void drawUserIcon(double latitude, double longitude) {
+    	// draw user icon on the map
+        userIconY = (float) (maxMapY-((longitude - minLongtitude)/(maxLongtitude - minLongtitude)) * maxMapY);
+        userIconX = (float) (maxMapX-((latitude - minLatitude)/(maxLatitude - minLatitude)) * maxMapX);     
+        Bitmap sourceIcon = BitmapFactory.decodeResource(getResources(), R.drawable.user_icon);
+        sourceIcon = Bitmap.createScaledBitmap(sourceIcon, 50, 67, false);
+        mMapCanvas.drawBitmap(sourceIcon, userIconX - 50/2, userIconY - 67, null);
+    }
+    
+    private void drawDestinationIcon(double latitude, double longitude) {
+    	// draw destination icon on the map
+        destinationIconY = (float) (maxMapY-((longitude - minLongtitude)/(maxLongtitude - minLongtitude)) * maxMapY);
+        destinationIconX = (float) (maxMapX-((latitude - minLatitude)/(maxLatitude - minLatitude)) * maxMapX);     
+        Bitmap destinationIcon = BitmapFactory.decodeResource(getResources(), R.drawable.destination_icon);
+        destinationIcon = Bitmap.createScaledBitmap(destinationIcon, 50, 67, false);
+        mMapCanvas.drawBitmap(destinationIcon, destinationIconX - 50/2, destinationIconY - 67, null);
+    }
+    
+    private int calculateViewSize(double size, boolean width) {
+    	if(width)
+    		return (int)((size / maxMapX) * mMapTouchImageView.getWidth());
+    	else
+    		return (int)((size / maxMapY) * mMapTouchImageView.getHeight());    			
+    }
+    
+    /**
+     * For debugging purpose
+     */
+    private void drawDot() throws IOException {   	
+    	DatabaseHelper mDatabaseHelper = DatabaseHelper.getInstance(this);
+		SQLiteDatabase mDatabase = mDatabaseHelper.getWritableDatabase();
+    	double latitude;
+    	double longitude;
+    	for(int i=1;i<88;i++) {
+    		// retrieve the first node from the path
+    		Cursor node_cursor = mDatabase.rawQuery("SELECT * FROM Node WHERE _id=" + i, null);
+    		node_cursor.moveToFirst(); 			
+	    	latitude = node_cursor.getDouble(node_cursor.getColumnIndex("latitude")) + mFix;
+	    	longitude = node_cursor.getDouble(node_cursor.getColumnIndex("longitude"));
+	    	// draw from starting point to ending point
+	        float startY = (float) (maxMapY-((longitude - minLongtitude)/(maxLongtitude - minLongtitude)) * maxMapY);
+	        float startX = (float) (maxMapX-((latitude - minLatitude)/(maxLatitude - minLatitude)) * maxMapX);
+	    	mMapCanvas.drawCircle(startX,startY, 3, mPaint);
+    	}
+    }
+}

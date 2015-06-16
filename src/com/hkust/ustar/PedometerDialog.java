@@ -1,0 +1,177 @@
+package com.hkust.ustar;
+
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.SeekBar;
+import android.widget.TextView;
+import android.widget.SeekBar.OnSeekBarChangeListener;
+
+public class PedometerDialog extends AlertDialog {
+	private TextView mSensitivityValueTextView;
+	private TextView mHeightValueTextView;
+	private SeekBar mSensitivitySeekBar;
+	private SeekBar mHeightSeekBar;
+	private CheckBox mAutoUpdateCheckBox;
+	private CheckBox mTTSCheckBox;
+	private int mSensitivity;
+	private int mUserHeight;
+	onDialogResult mDialogResult;
+
+	public PedometerDialog(Context context) {
+		super(context);
+	}
+
+	@Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.pedometer_dialog);
+        // Get seekbar and change textview value accordingly
+	    mSensitivityValueTextView = (TextView)findViewById(R.id.sensitivity_value_textview);
+	    mSensitivitySeekBar = (SeekBar)findViewById(R.id.sensitivity_seekbar);
+	    mSensitivitySeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int progress,
+					boolean fromUser) {
+				mSensitivity = 25 - progress;
+				String display;
+				if(mSensitivity>=20)
+					display = "Very Low";
+				else if(mSensitivity>=15)
+					display = "Low";
+				else if(mSensitivity>=10)
+					display = "Medium";
+				else if(mSensitivity>=5)
+					display = "High";
+				else
+					display = "Very High";
+				mSensitivityValueTextView.setText(display);
+			}
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {
+				// TODO Auto-generated method stub
+			}
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {
+				// TODO Auto-generated method stub
+			}
+	    });
+	    
+	    mHeightValueTextView = (TextView)findViewById(R.id.height_value_textview);
+	    mHeightSeekBar = (SeekBar)findViewById(R.id.height_seekbar);
+	    mHeightSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int progress,
+					boolean fromUser) {
+				mUserHeight = progress;
+				String display;
+				if(mUserHeight == 0)
+					display = "1.00m or below";
+				else if(mUserHeight == 100)
+					display = "2.00m or above";
+				else
+					display = "1." + String.format("%02d",progress) + "m";
+				mHeightValueTextView.setText(display);
+			}
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {
+				// TODO Auto-generated method stub
+			}
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {
+				// TODO Auto-generated method stub
+			}
+	    });
+		
+	    mAutoUpdateCheckBox = (CheckBox)findViewById(R.id.auto_update_checkbox);
+	    mTTSCheckBox = (CheckBox)findViewById(R.id.tts_checkbox);
+	    
+	    Button cancel_button = (Button) findViewById(R.id.cancel_button);
+	    cancel_button.setOnClickListener(new View.OnClickListener() {
+			  @Override
+			  public void onClick(View v) {
+					PedometerDialog.this.dismiss();
+			  }
+		});
+	    Button reset_button = (Button) findViewById(R.id.reset_button);
+	    reset_button.setOnClickListener(new View.OnClickListener() {
+			  @Override
+			  public void onClick(View v) {
+					mDialogResult.finish(13, 70, true, true);
+					PedometerDialog.this.dismiss();
+			  }
+		});
+	    Button save_button = (Button) findViewById(R.id.save_button);
+	    save_button.setOnClickListener(new View.OnClickListener() {
+			  @Override
+			  public void onClick(View v) {
+					mDialogResult.finish(mSensitivity, mUserHeight, mAutoUpdateCheckBox.isChecked(), mTTSCheckBox.isChecked());		
+					PedometerDialog.this.dismiss();
+			  }
+		});
+	}
+	
+	public void setDialogResult(onDialogResult dialogResult){
+        mDialogResult = dialogResult;
+    }
+
+    public interface onDialogResult{
+       void finish(int sensitivity, int height, boolean auto_update, boolean tts);
+    }
+	
+	public void setSensitivitySeekBar(int sensitivity) {
+		if(mSensitivitySeekBar != null) {
+			mSensitivitySeekBar.setProgress(25 - sensitivity);
+			String display;
+			if(sensitivity>=20)
+				display = "Very Low";
+			else if(sensitivity>=15)
+				display = "Low";
+			else if(sensitivity>=10)
+				display = "Medium";
+			else if(sensitivity>=5)
+				display = "High";
+			else
+				display = "Very High";
+			mSensitivityValueTextView.setText(display);
+		}
+	}
+	
+	public void setHeightSeekBar(int progress) {
+		mUserHeight = progress;
+		if(mHeightSeekBar != null) {
+			mHeightSeekBar.setProgress(mUserHeight);
+			String display;
+			if(mUserHeight == 0)
+				display = "1.00m or below";
+			else if(mUserHeight == 100)
+				display = "2.00m or above";
+			else
+				display = "1." + String.format("%02d",progress) + "m";
+			mHeightValueTextView.setText(display);
+		}
+	}
+	
+	public void setAutoUpdateCheckBox(boolean auto_update) {
+		mAutoUpdateCheckBox.setChecked(auto_update);
+	}
+	
+	public void setTTSCheckBox(boolean tts) {
+		mTTSCheckBox.setChecked(tts);
+	}
+	
+	public int getHeight() {
+		return mUserHeight;
+	}
+	
+	public int getSensitivity() {
+		return mSensitivity;
+	}
+}

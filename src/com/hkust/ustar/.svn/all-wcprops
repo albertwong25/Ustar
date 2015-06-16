@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/39/trunk/Ustar/src/com/hkust/ustar
+END
+OcrCharacterHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/38/trunk/Ustar/src/com/hkust/ustar/OcrCharacterHelper.java
+END
+Edge.java
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/38/trunk/Ustar/src/com/hkust/ustar/Edge.java
+END
+PedometerDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/43/trunk/Ustar/src/com/hkust/ustar/PedometerDialog.java
+END
+BeepManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/46/trunk/Ustar/src/com/hkust/ustar/BeepManager.java
+END
+LocationBased.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/46/trunk/Ustar/src/com/hkust/ustar/LocationBased.java
+END
+OcrRecognizeAsyncTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/38/trunk/Ustar/src/com/hkust/ustar/OcrRecognizeAsyncTask.java
+END
+DecodeThread.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/38/trunk/Ustar/src/com/hkust/ustar/DecodeThread.java
+END
+PreferencesActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/42/trunk/Ustar/src/com/hkust/ustar/PreferencesActivity.java
+END
+CaptureActivityHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/38/trunk/Ustar/src/com/hkust/ustar/CaptureActivityHandler.java
+END
+TouchImageView.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/42/trunk/Ustar/src/com/hkust/ustar/TouchImageView.java
+END
+CaptureActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/45/trunk/Ustar/src/com/hkust/ustar/CaptureActivity.java
+END
+DecodeHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/38/trunk/Ustar/src/com/hkust/ustar/DecodeHandler.java
+END
+OcrResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/38/trunk/Ustar/src/com/hkust/ustar/OcrResult.java
+END
+PathFinder.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/38/trunk/Ustar/src/com/hkust/ustar/PathFinder.java
+END
+Node.java
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/38/trunk/Ustar/src/com/hkust/ustar/Node.java
+END
+FinishListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/38/trunk/Ustar/src/com/hkust/ustar/FinishListener.java
+END
+OcrResultText.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/38/trunk/Ustar/src/com/hkust/ustar/OcrResultText.java
+END
+OcrInitAsyncTask.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/42/trunk/Ustar/src/com/hkust/ustar/OcrInitAsyncTask.java
+END
+OcrResultFailure.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/38/trunk/Ustar/src/com/hkust/ustar/OcrResultFailure.java
+END
+LuminanceSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/38/trunk/Ustar/src/com/hkust/ustar/LuminanceSource.java
+END
+TouchImageViewActivity.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/43/trunk/Ustar/src/com/hkust/ustar/TouchImageViewActivity.java
+END
+ViewfinderView.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/38/trunk/Ustar/src/com/hkust/ustar/ViewfinderView.java
+END
+PlanarYUVLuminanceSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/38/trunk/Ustar/src/com/hkust/ustar/PlanarYUVLuminanceSource.java
+END

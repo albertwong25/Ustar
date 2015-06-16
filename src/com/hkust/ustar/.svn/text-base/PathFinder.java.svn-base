@@ -1,0 +1,158 @@
+package com.hkust.ustar;
+
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Collections;
+import java.util.PriorityQueue;
+
+
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import com.hkust.ustar.database.DatabaseHelper;
+
+public class PathFinder {
+	
+	private Context context;
+	
+	public PathFinder (Context context) {
+		this.context = context;
+	}
+	
+	public String getPathString(int sourceNID, int destinationNID) throws IOException
+	{	
+		DatabaseHelper mDatabaseHelper = DatabaseHelper.getInstance(context);
+		SQLiteDatabase db = mDatabaseHelper.getDatabase();
+	    Cursor node=db.rawQuery("SELECT * from Node", null);
+	    int count= node.getCount();
+        List<Node> allNodes = new ArrayList<Node>();
+		node.moveToFirst(); 
+        for(int i = 0; i < count; i++)
+        {
+        	allNodes.add(new Node(node.getInt(node.getColumnIndex("_id"))));
+	        node.moveToNext() ;
+        }
+	    Cursor edge=db.rawQuery("SELECT * from Edge", null);
+	    int count_edge= edge.getCount();
+
+	    List<Edge> allEdges;
+	    for(int i = 0; i < count; i++)
+	    {
+		    //System.out.println("HELLO " + i);
+	    	allEdges = new ArrayList<Edge>();
+		    edge.moveToFirst();
+    		while(!edge.isAfterLast())
+    		{
+	    		if(Integer.valueOf(allNodes.get(i).getNID()) == Integer.valueOf(edge.getInt(edge.getColumnIndex("nid_start"))))
+	    		{
+	    			int tmpnid = Integer.valueOf(edge.getInt(edge.getColumnIndex("nid_end")));
+	    			Node tmpVertex = vertexMatch(allNodes, tmpnid);
+	    			allEdges.add(new Edge(tmpVertex,edge.getDouble(edge.getColumnIndex("length"))));
+	    		}
+    			edge.moveToNext();
+	    	}
+    		allNodes.get(i).adjacencies = allEdges; 
+	    }
+
+	    Node source, target; 
+  	  	List<Node> srcdest = getSrcDest(allNodes, sourceNID, destinationNID);
+        source = srcdest.get(0);
+        target = srcdest.get(1);
+
+        List<Node> paths;
+        computePaths(source); // run Dijkstra
+    	paths = getShortestPathTo(source,target);
+    	
+    	String pathString = "";
+    	
+    	for(int i=0; i < paths.size(); i++)
+    	{
+    		if(i == paths.size() - 1)
+    		{
+    			pathString = pathString + paths.get(i).getNID();
+    		}
+    		else 
+    		{
+    			pathString = pathString + paths.get(i).getNID() + ",";
+    		}
+    	}
+    	
+    	return pathString; 
+	}
+	
+	//FROM HERE AND BELOW IS THE ACTUAL ALGORITHM 
+    public static void computePaths(Node source)
+    {
+        source.minDistance = 0.;
+        PriorityQueue<Node> vertexQueue = new PriorityQueue<Node>();
+        vertexQueue.add(source);
+
+	    while (!vertexQueue.isEmpty()) {
+	        Node u = vertexQueue.poll();
+	            // Visit each edge exiting u
+	            for (Edge e : u.adjacencies)
+	            {
+	                Node v = e.target;
+	                double weight = e.weight;
+	                double distanceThroughU = u.minDistance + weight;
+			        if (distanceThroughU < v.minDistance) {
+			            vertexQueue.remove(v);
+			            v.minDistance = distanceThroughU ;
+			            v.previous = u;
+			            u.next = v; 
+			            vertexQueue.add(v);
+			        }
+	            }
+        	}
+    }
+
+    public static List<Node> getShortestPathTo(Node source, Node target)
+    {
+        List<Node> path = new ArrayList<Node>();
+        for (Node vertex = target; vertex != source.previous; vertex = vertex.previous)
+            path.add(vertex);
+
+        Collections.reverse(path);
+        
+        return path;
+    }
+
+    public static List<Node> getSrcDest(List<Node> path, int src_nid, int dst_nid)
+    {
+        Node src = null, dest = null;// = new Vertex(source.name);
+        for(int i =0; i < path.size(); i++)
+        {
+        	if(Integer.valueOf(path.get(i).getNID()) == src_nid)
+        	{
+        		src = path.get(i);
+        	}
+        	
+        	if(Integer.valueOf(path.get(i).getNID()) == dst_nid)
+        	{
+        		dest = path.get(i);
+        	}
+        }
+        
+        List<Node> srcdest = new ArrayList<Node>();
+        if(src !=null && dest != null)
+        {
+        	srcdest.add(src);
+        	srcdest.add(dest);
+        }
+        return srcdest;
+    }
+    
+    public static Node vertexMatch(List<Node> node, int nid)
+    {
+    	for(int i = 0; i < node.size(); i++)
+    	{
+    		if(nid == Integer.valueOf(node.get(i).getNID()))
+    		{
+    			return node.get(i);
+   			}
+    	}
+    	return null; 
+    }
+}

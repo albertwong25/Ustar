@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 28
+/svn/!svn/ver/39/trunk/Ustar
+END
+default.properties
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/10/trunk/Ustar/default.properties
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/19/trunk/Ustar/.classpath
+END
+proguard.cfg
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/10/trunk/Ustar/proguard.cfg
+END
+project.properties
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/38/trunk/Ustar/project.properties
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/10/trunk/Ustar/.project
+END
+lint.xml
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/10/trunk/Ustar/lint.xml
+END
+AndroidManifest.xml
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/38/trunk/Ustar/AndroidManifest.xml
+END
+ic_launcher-web.png
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/34/trunk/Ustar/ic_launcher-web.png
+END
+ant.properties
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/10/trunk/Ustar/ant.properties
+END
+build.xml
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/10/trunk/Ustar/build.xml
+END

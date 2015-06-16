@@ -1,0 +1,72 @@
+# view AndroidManifest.xml #generated:54
+-keep class com.hkust.ustar.CaptureActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:81
+-keep class com.hkust.ustar.GestureActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:65
+-keep class com.hkust.ustar.LocationBased { <init>(...); }
+
+# view AndroidManifest.xml #generated:90
+-keep class com.hkust.ustar.PreferencesActivity { <init>(...); }
+
+# view res/layout/image_view.xml #generated:6
+-keep class com.hkust.ustar.TouchImageView { <init>(...); }
+
+# view AndroidManifest.xml #generated:72
+-keep class com.hkust.ustar.TouchImageViewActivity { <init>(...); }
+
+# view res/layout/capture.xml #generated:27
+-keep class com.hkust.ustar.ViewfinderView { <init>(...); }
+
+# view res/layout/capture.xml #generated:199
+-keep class com.hkust.ustar.camera.ShutterButton { <init>(...); }
+
+# view res/layout/location_based.xml #generated:65
+-keep class com.hkust.ustar.verticalscrollview.CenterLockVerticalScrollView { <init>(...); }
+
+# view res/layout/poiactivity.xml #generated:6
+-keep class com.metaio.cloud.plugin.view.POIDetailFragment { <init>(...); }
+
+# view land\res/layout-land/poidetaildialog.xml #generated:14
+# view land\res/layout-land/poidetaildialog.xml #generated:59
+# view res/layout/poidetaildialog.xml #generated:13
+# view res/layout/poidetaildialog.xml #generated:58
+-keep class com.metaio.cloud.plugin.view.RemoteImageView { <init>(...); }
+
+# view res/layout/toast.xml #generated:2
+-keep class com.metaio.cloud.plugin.view.RotatedLayout { <init>(...); }
+
+# view land\res/layout-land/poidetaildialog.xml #generated:24
+# view res/layout/poidetaildialog.xml #generated:23
+-keep class com.metaio.cloud.plugin.view.ScalableTextView { <init>(...); }
+
+# onClick res/layout/capture.xml #generated:98
+-keepclassmembers class * { *** onBackButtonClick(...); }
+
+# onClick res/layout/webviewnav.xml #generated:29
+# onClick res/layout/webviewnav.xml #generated:40
+# onClick res/layout/webviewnav.xml #generated:51
+# onClick res/layout/webviewnav.xml #generated:63
+# onClick res/layout/webviewnav.xml #generated:73
+# onClick res/layout/webviewnav.xml #generated:84
+-keepclassmembers class * { *** onButtonClickHandler(...); }
+
+# onClick res/layout/location_based.xml #generated:38
+-keepclassmembers class * { *** onCVSButtonClick(...); }
+
+# onClick res/layout/capture.xml #generated:190
+-keepclassmembers class * { *** onConfirmButton2Click(...); }
+
+# onClick res/layout/capture.xml #generated:106
+-keepclassmembers class * { *** onConfirmButtonClick(...); }
+
+# onClick res/layout/location_based.xml #generated:25
+-keepclassmembers class * { *** onInfoButtonClick(...); }
+
+# onClick res/layout/location_based.xml #generated:31
+-keepclassmembers class * { *** onMapButtonClick(...); }
+
+# onClick res/layout/location_based.xml #generated:6
+-keepclassmembers class * { *** onStepsTextViewClick(...); }
+
