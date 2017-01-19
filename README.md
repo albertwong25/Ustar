@@ -6,16 +6,16 @@ Although navigation application offer the way how we can get to the destination,
 
 Initial startup of Navigation
 
-[image1](https://github.com/wai25/Ustar/blob/master/images/1.png)
+![image1](https://github.com/wai25/Ustar/blob/master/images/1.png)
 
 Option Menu
 
-[image2](https://github.com/wai25/Ustar/blob/master/images/2.png)
+![image2](https://github.com/wai25/Ustar/blob/master/images/2.png)
 
 CVS demonstration with a video clip
 
-[image3](https://github.com/wai25/Ustar/blob/master/images/3.png)
+![image3](https://github.com/wai25/Ustar/blob/master/images/3.png)
 
 General settings for AR
 
-[image4](https://github.com/wai25/Ustar/blob/master/images/4.png)
+![image4](https://github.com/wai25/Ustar/blob/master/images/4.png)
